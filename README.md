@@ -14,11 +14,6 @@ Photo &amp; Video Organizer  Smart automatic sorting of photos and videos by dat
 - **Обработка других файлов** - неподдерживаемые форматы в отдельную папку
 - **Прогресс и статистика** - отслеживание процесса и детальная статистика
 
-### 🚀 Быстрый старт
-```powershell
-.\Сортировка_фото_GUI.ps1
-
-
 
 
 
@@ -41,10 +36,7 @@ Smart automatic sorting of photos and videos by date.
 
     Progress & stats - process tracking with detailed statistics
 
-🚀 Quick Start
-powershell
 
-.\Photo_Organizer_GUI.ps1
 
 📋 Requirements
 
