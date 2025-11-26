@@ -16,7 +16,7 @@ Photo &amp; Video Organizer  Smart automatic sorting of photos and videos by dat
 
 ### 🚀 Быстрый старт
 ```powershell
-.\Сортировка_фото_GUI_V2.ps1
+.\Сортировка_фото_GUI.ps1
 
 
 
@@ -44,7 +44,7 @@ Smart automatic sorting of photos and videos by date.
 🚀 Quick Start
 powershell
 
-.\Photo_Organizer_GUI_V2.ps1
+.\Photo_Organizer_GUI.ps1
 
 📋 Requirements
 
