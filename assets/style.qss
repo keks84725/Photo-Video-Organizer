@@ -1,0 +1,15 @@
+
+QMainWindow {
+    background-color: #101010;
+}
+QPushButton {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #2C2C2C;
+    color: white;
+    border-radius: 10px;
+    padding: 8px;
+}
+QProgressBar {
+    color: white;
+}
