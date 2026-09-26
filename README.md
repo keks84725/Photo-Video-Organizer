@@ -38,7 +38,11 @@
 
 <div align="center">
 
-![Карта кнопок и интерфейса](assets/ui_annotated.svg)
+![Карта кнопок и интерфейса](assets/ui_interface_guide.jpg)
+
+<br/>
+
+<img src="assets/app_screenshot.jpg" width="480" alt="Интерфейс Photo & Video Organizer 2.0" style="border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
 
 </div>
 
@@ -111,7 +115,11 @@ Unlike cloud solutions like Google Photos, Apple iCloud, or expensive subscripti
 
 <div align="center">
 
-![Buttons & UI Callout Guide](assets/ui_annotated_en.svg)
+![Buttons & UI Callout Guide](assets/ui_interface_guide.jpg)
+
+<br/>
+
+<img src="assets/app_screenshot.jpg" width="480" alt="Photo & Video Organizer 2.0 Interface" style="border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
 
 </div>
 
