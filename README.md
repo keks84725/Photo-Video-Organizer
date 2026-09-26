@@ -14,10 +14,10 @@
 
 <br/>
 
-### 🚀 [📥 Скачать PhotoVideoOrganizer.exe (v2.0 для Windows)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)
+### [📥 Скачать PhotoVideoOrganizer.exe (v2.0 для Windows)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)
 *Портативный автономный .exe • 55 МБ • Запуск в 1 клик без установки*
 
-**[🇷🇺 Описание на русском](#-организатор-фото-20) • [🇬🇧 English Guide](#-photo-organizer-20-english)**
+**[🇷🇺 Описание на русском](#-photo--video-organizer-20) • [🇬🇧 English Guide](#-photo--video-organizer-20-english)**
 
 </div>
 
@@ -25,7 +25,7 @@
 
 <br/>
 
-## 🇷🇺 Организатор фото 2.0
+## 🇷🇺 Photo & Video Organizer 2.0
 
 **Photo & Video Organizer 2.0** — это быстрое, полностью автономное десктопное приложение для наведения идеального порядка в фотоархивах, очистки дубликатов и сортировки снимков по датам.
 
@@ -42,11 +42,7 @@
 
 <div align="center">
 
-![Карта кнопок и интерфейса](assets/ui_interface_guide.jpg)
-
-<br/>
-
-<img src="assets/app_screenshot.jpg" width="480" alt="Интерфейс Photo & Video Organizer 2.0" style="border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
+![Карта кнопок и интерфейса](assets/ui_interface_guide_ru.jpg)
 
 </div>
 
@@ -82,18 +78,18 @@
 
 ---
 
-### 🚀 Запуск программы
+### 💻 Запуск программы
 
 Программа поставляется в виде одного готового автономного файла **`PhotoVideoOrganizer.exe`** (без установщиков, библиотек и командных строк):
 
-1. **[📥 Скачать PhotoVideoOrganizer.exe (55 МБ)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)** — прямая ссылка на исполняемый файл из официального релиза **[Ver. 2.0](https://github.com/keks84725/Photo-Video-Organizer/releases/tag/v2.0)**.
-2. Запустите файл двойным кликом на Windows 10/11 — приложение сразу готово к работе!
+1. Запустите скачанный файл **`PhotoVideoOrganizer.exe`** двойным кликом на Windows 10/11.
+2. Выберите папки источника и назначения в сетке и нажмите кнопку **START** — приложение сразу начнет организацию файлов!
 
 ---
 
 <br/>
 
-## 🇬🇧 Photo Organizer 2.0 (English)
+## 🇬🇧 Photo & Video Organizer 2.0 (English)
 
 **Photo & Video Organizer 2.0** is an ultra-fast, local-first, privacy-focused desktop application designed to bring order to messy photo archives and clean up duplicates.
 
@@ -108,11 +104,7 @@ Unlike cloud solutions or paid subscriptions, this tool operates **100% offline*
 
 <div align="center">
 
-![Buttons & UI Callout Guide](assets/ui_interface_guide.jpg)
-
-<br/>
-
-<img src="assets/app_screenshot.jpg" width="480" alt="Photo & Video Organizer 2.0 Interface" style="border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
+![Buttons & UI Callout Guide](assets/ui_interface_guide_en.jpg)
 
 </div>
 
@@ -149,8 +141,8 @@ Unlike cloud solutions or paid subscriptions, this tool operates **100% offline*
 
 Zero installations or setup wizards required. The application is distributed as a single standalone portable **`PhotoVideoOrganizer.exe`**:
 
-1. **[📥 Download PhotoVideoOrganizer.exe (55 MB)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)** — direct link to the executable from the official **[Ver. 2.0 Release](https://github.com/keks84725/Photo-Video-Organizer/releases/tag/v2.0)**.
-2. Double-click the `.exe` file on Windows 10/11 to start organizing immediately!
+1. Double-click the downloaded **`PhotoVideoOrganizer.exe`** on Windows 10/11.
+2. Select your source and target folders in the grid, then click **START** to begin organizing!
 
 ---
 
