@@ -1,25 +1,27 @@
-<div align="center">
+<h1 align="center">📸 Photo & Video Organizer 2.0</h1>
+<h3 align="center"><em>Next-Gen Local-First Photo Sorter & Duplicate Cleaner</em></h3>
 
-# 📸 Photo & Video Organizer 2.0
-### *Next-Gen Local-First Photo Sorter & Duplicate Cleaner*
+<p align="center">
+  <a href="https://github.com/keks84725/Photo-Video-Organizer/releases/tag/v2.0"><img src="https://img.shields.io/badge/Release-v2.0-blue.svg" alt="Release" /></a>
+  <a href="https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe"><img src="https://img.shields.io/badge/Download-PhotoVideoOrganizer.exe%20(55%20MB)-success?logo=windows&logoColor=white" alt="Download EXE" /></a>
+  <img src="https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Cloud-red?logo=shield&logoColor=white" alt="Privacy" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-purple.svg" alt="License" /></a>
+</p>
 
-[![Release](https://img.shields.io/badge/Release-v2.0-blue.svg)](https://github.com/keks84725/Photo-Video-Organizer/releases/tag/v2.0)
-[![Download EXE](https://img.shields.io/badge/Download-PhotoVideoOrganizer.exe%20(55%20MB)-success?logo=windows&logoColor=white)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Cloud-red?logo=shield&logoColor=white)]()
-[![License](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
+<p align="center">
+  <img src="assets/banner_v2.jpg" alt="Photo & Video Organizer 2.0 Banner" width="100%" style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
+</p>
 
-<br/>
+<p align="center">
+  <a href="https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe">
+    <img src="https://img.shields.io/badge/📥%20Скачать%20PhotoVideoOrganizer.exe%20(v2.0%20Windows)-55%20MB-0284C7?style=for-the-badge&logo=windows&logoColor=white" alt="Download" />
+  </a>
+</p>
 
-![Photo & Video Organizer 2.0 Banner](assets/banner_v2.jpg)
-
-<br/>
-
-### [📥 Скачать PhotoVideoOrganizer.exe (v2.0 для Windows)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)
-*Портативный автономный .exe • 55 МБ • Запуск в 1 клик без установки*
-
-**[🇷🇺 Описание на русском](#-photo--video-organizer-20) • [🇬🇧 English Guide](#-photo--video-organizer-20-english)**
-
-</div>
+<p align="center">
+  <em>Портативный автономный .exe • 55 МБ • Запуск в 1 клик без установки</em><br/>
+  <strong><a href="#-photo--video-organizer-20">🇷🇺 Описание на русском</a> • <a href="#-photo--video-organizer-20-english">🇬🇧 English Guide</a></strong>
+</p>
 
 ---
 
@@ -40,11 +42,9 @@
 
 Интерфейс спроектирован по принципу *Zero-Friction*: вся функциональность упакована в одно окно размером `585 × 720 px`, где всё понятно с первого взгляда.
 
-<div align="center">
-
-![Карта кнопок и интерфейса](assets/ui_interface_guide_ru.jpg)
-
-</div>
+<p align="center">
+  <img src="assets/ui_interface_guide_ru.jpg" alt="Карта кнопок и интерфейса Photo & Video Organizer 2.0" width="100%" style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
+</p>
 
 ### 🕹️ Описание блоков и элементов управления
 
@@ -102,11 +102,9 @@ Unlike cloud solutions or paid subscriptions, this tool operates **100% offline*
 
 ### 🗺️ Visual Interface Guide
 
-<div align="center">
-
-![Buttons & UI Callout Guide](assets/ui_interface_guide_en.jpg)
-
-</div>
+<p align="center">
+  <img src="assets/ui_interface_guide_en.jpg" alt="Photo & Video Organizer 2.0 Interface & Controls Guide" width="100%" style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
+</p>
 
 ### 🕹️ Control Panel & Buttons
 
