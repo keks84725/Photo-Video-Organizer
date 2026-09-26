@@ -3,8 +3,8 @@
 # 📸 Photo & Video Organizer 2.0
 ### *Next-Gen Local-First Photo Sorter & Duplicate Cleaner*
 
-[![Release](https://img.shields.io/badge/Release-v2.0-blue.svg)]()
-[![Platform](https://img.shields.io/badge/Platform-Windows%20Portable%20(.exe)-0078D6?logo=windows&logoColor=white)]()
+[![Release](https://img.shields.io/badge/Release-v2.0-blue.svg)](https://github.com/keks84725/Photo-Video-Organizer/releases/tag/v2.0)
+[![Download EXE](https://img.shields.io/badge/Download-PhotoVideoOrganizer.exe%20(55%20MB)-success?logo=windows&logoColor=white)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Cloud-red?logo=shield&logoColor=white)]()
 [![License](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
@@ -12,7 +12,12 @@
 
 ![Photo & Video Organizer 2.0 Banner](assets/banner_v2.jpg)
 
-**[🇷🇺 Русский](#-организатор-фото-20) • [🇬🇧 English](#-photo-organizer-20-english)**
+<br/>
+
+### 🚀 [📥 Скачать PhotoVideoOrganizer.exe (v2.0 для Windows)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)
+*Портативный автономный .exe • 55 МБ • Запуск в 1 клик без установки*
+
+**[🇷🇺 Описание на русском](#-организатор-фото-20) • [🇬🇧 English Guide](#-photo-organizer-20-english)**
 
 </div>
 
@@ -79,10 +84,10 @@
 
 ### 🚀 Запуск программы
 
-Никаких установок, библиотек и командных строк. Программа поставляется в виде одного готового портативного файла **`PhotoVideoOrganizer.exe`**:
+Программа поставляется в виде одного готового автономного файла **`PhotoVideoOrganizer.exe`** (без установщиков, библиотек и командных строк):
 
-1. Скачайте **`PhotoVideoOrganizer.exe`** из раздела [Релизы](https://github.com/keks84725/Photo-Video-Organizer/releases) или вкладки [Actions (Artifacts)](https://github.com/keks84725/Photo-Video-Organizer/actions).
-2. Запустите файл двойным кликом — приложение сразу готово к работе!
+1. **[📥 Скачать PhotoVideoOrganizer.exe (55 МБ)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)** — прямая ссылка на исполняемый файл из официального релиза **[Ver. 2.0](https://github.com/keks84725/Photo-Video-Organizer/releases/tag/v2.0)**.
+2. Запустите файл двойным кликом на Windows 10/11 — приложение сразу готово к работе!
 
 ---
 
@@ -142,10 +147,10 @@ Unlike cloud solutions or paid subscriptions, this tool operates **100% offline*
 
 ### 💻 How to Run
 
-Zero installations or build setups needed. The application is distributed as a single portable **`PhotoVideoOrganizer.exe`**:
+Zero installations or setup wizards required. The application is distributed as a single standalone portable **`PhotoVideoOrganizer.exe`**:
 
-1. Download **`PhotoVideoOrganizer.exe`** from [Releases](https://github.com/keks84725/Photo-Video-Organizer/releases) or the [Actions (Artifacts)](https://github.com/keks84725/Photo-Video-Organizer/actions) tab.
-2. Double-click the `.exe` file to start organizing immediately!
+1. **[📥 Download PhotoVideoOrganizer.exe (55 MB)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)** — direct link to the executable from the official **[Ver. 2.0 Release](https://github.com/keks84725/Photo-Video-Organizer/releases/tag/v2.0)**.
+2. Double-click the `.exe` file on Windows 10/11 to start organizing immediately!
 
 ---
 
