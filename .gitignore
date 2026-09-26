@@ -1,0 +1,26 @@
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Build & Dist
+build/
+dist/
+*.spec
+
+# Organizer local configs and cache
+.photo_video_organizer_config.json
+.photo_video_organizer_cache/
+.organizer_last_run.json
+
+# OS specific
+.DS_Store
+Thumbs.db

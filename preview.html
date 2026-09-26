@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo & Video Organizer - UI Preview</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #0b0d17;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Window Container (585 x 720) */
+    .app-window {
+      width: 585px;
+      height: 720px;
+      background-color: #141726;
+      border-radius: 28px;
+      border: 1.5px solid #23283E;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75);
+      display: flex;
+      flex-direction: column;
+      padding: 18px 18px 20px 18px;
+      position: relative;
+      user-select: none;
+    }
+
+    /* Top Display Screen */
+    .screen-card {
+      width: 100%;
+      height: 265px;
+      background-color: #313754;
+      border-radius: 24px;
+      border: 1px solid #3D4466;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding: 0 0 14px 0;
+    }
+
+    /* Notch */
+    .notch {
+      background-color: #000000;
+      border: 1.5px solid #363D56;
+      border-top: none;
+      padding: 4px 24px;
+      border-bottom-left-radius: 13px;
+      border-bottom-right-radius: 13px;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      font-family: Georgia, 'Times New Roman', serif;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .screen-content {
+      width: 100%;
+      flex: 1;
+      padding: 14px 20px;
+      color: #CBD5E1;
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-y: auto;
+    }
+
+    .progress-bar-container {
+      width: calc(100% - 36px);
+      height: 6px;
+      background-color: #242A42;
+      border-radius: 3px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #3B82F6 0%, #10B981 100%);
+      transition: width 0.3s ease;
+    }
+
+    /* Middle Modes Section */
+    .mode-card {
+      width: 100%;
+      height: 102px;
+      background-color: #191D30;
+      border: 1.5px solid #282E47;
+      border-radius: 20px;
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .mode-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .mode-btn {
+      width: 126px;
+      height: 48px;
+      border-radius: 16px;
+      border: 1px solid #1E3A8A;
+      background: linear-gradient(180deg, #3B82F6 0%, #1D4ED8 100%);
+      color: #FFFFFF;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(29, 78, 216, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .mode-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+    }
+
+    .mode-item.active .mode-btn {
+      background: linear-gradient(180deg, #4E95FF 0%, #2563EB 100%);
+      border: 2px solid #93C5FD;
+      box-shadow: 0 0 15px rgba(147, 197, 253, 0.6);
+    }
+
+    .mode-label {
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 500;
+      background: transparent;
+      border: none;
+    }
+
+    /* Bottom Section */
+    .bottom-section {
+      width: 100%;
+      margin-top: 14px;
+      display: flex;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .bottom-card {
+      flex: 1;
+      background-color: #242A42;
+      border: 1.5px solid #2E3553;
+      border-radius: 24px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .folder-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 114px);
+      grid-template-rows: repeat(2, 58px);
+      gap: 14px 16px;
+    }
+
+    .folder-btn {
+      background: linear-gradient(180deg, #5651B7 0%, #453FA6 100%);
+      border: 1px solid #353086;
+      border-radius: 14px;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(69, 63, 166, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .folder-btn:hover {
+      background: linear-gradient(180deg, #635DC7 0%, #5048B5 100%);
+      border-color: #6366F1;
+      transform: translateY(-1px);
+    }
+
+    .folder-btn.selected {
+      border: 2px solid #818CF8;
+      background: linear-gradient(180deg, #6366F1 0%, #4338CA 100%);
+    }
+
+    /* Big Green START Button */
+    .start-circle-btn {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background-color: #34C759;
+      border: 8px solid #235D2E;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 6px 20px rgba(52, 199, 89, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .start-circle-btn:hover {
+      background-color: #3DDC64;
+      border-color: #2C743A;
+      transform: scale(1.04);
+      box-shadow: 0 8px 24px rgba(61, 220, 100, 0.6);
+    }
+
+    .start-circle-btn.running {
+      background-color: #EF4444;
+      border-color: #991B1B;
+      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+    }
+
+    /* Side Toolbar */
+    .side-toolbar {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+    }
+
+    .side-btn {
+      width: 44px;
+      height: 44px;
+      background-color: #000000;
+      border: 1.5px solid #202436;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #FFFFFF;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .side-btn:hover {
+      background-color: #121522;
+      border-color: #40486D;
+    }
+
+    .pill-btn {
+      height: 28px;
+      border-radius: 14px;
+      background-color: #3A4261;
+      border: 1px solid #4C567D;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .flag-btn {
+      height: 30px;
+      border-radius: 6px;
+      padding: 0;
+      overflow: hidden;
+      border: 1.5px solid #282E47;
+    }
+
+    .flag-btn svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .side-btn-text {
+      font-size: 9px;
+      font-weight: bold;
+      color: #FFFFFF;
+      margin-top: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-window">
+    <!-- Screen Card -->
+    <div class="screen-card">
+      <div class="notch">PHOTO-VIDEO-ORGANIZER</div>
+      <div class="screen-content" id="screenContent"></div>
+      <div class="progress-bar-container" id="progContainer">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- Mode Selector Card -->
+    <div class="mode-card">
+      <div class="mode-item active" onclick="selectMode(this, 'FULL')">
+        <div class="mode-btn">FULL</div>
+        <div class="mode-label" id="labelFull">Full Check</div>
+      </div>
+      <div class="mode-item" onclick="selectMode(this, 'DUPLICATE')">
+        <div class="mode-btn">DUPLICATE</div>
+        <div class="mode-label" id="labelDuplicate">Duplicate Check</div>
+      </div>
+      <div class="mode-item" onclick="selectMode(this, 'OTHER')">
+        <div class="mode-btn">OTHER</div>
+        <div class="mode-label" id="labelOther">Other Check</div>
+      </div>
+    </div>
+
+    <!-- Bottom Controls -->
+    <div class="bottom-section">
+      <div class="bottom-card">
+        <!-- Folder grid -->
+        <div class="folder-grid">
+          <button class="folder-btn" onclick="pickFolder(this, 'Media')">Media</button>
+          <button class="folder-btn" onclick="pickFolder(this, 'Temp')">Temp</button>
+          <button class="folder-btn" onclick="pickFolder(this, 'Duplicate')">Duplicate</button>
+          <button class="folder-btn" onclick="pickFolder(this, 'Other')">Other</button>
+        </div>
+
+        <!-- Start Button -->
+        <button class="start-circle-btn" id="startBtn" onclick="toggleStart()">START</button>
+      </div>
+
+      <!-- Right Utility Toolbar -->
+      <div class="side-toolbar">
+        <button class="side-btn pill-btn" onclick="showHelp()" title="Help">?</button>
+        <button class="side-btn flag-btn" id="flagBtn" onclick="cycleLanguage()" title="Switch Language">
+          <!-- UK Flag SVG -->
+          <svg viewBox="0 0 60 40"><path d="M0,0 v40 h60 v-40 z" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L30,20 M60,40 L30,20 M60,0 L30,20 M0,40 L30,20" stroke="#C8102E" stroke-width="3.5"/><path d="M30,0 v40 M0,20 h60" stroke="#fff" stroke-width="12"/><path d="M30,0 v40 M0,20 h60" stroke="#C8102E" stroke-width="7"/></svg>
+        </button>
+        <a class="side-btn" href="https://github.com/keks84725/Photo-Video-Organizer" target="_blank" title="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span class="side-btn-text">GitHub</span>
+        </a>
+        <a class="side-btn" href="https://github.com/keks84725" target="_blank" title="Donate">
+          <svg width="22" height="22" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="28" cy="14" r="7" stroke="white" stroke-width="2.5"/><path d="M28 10v8 M26 12h3a1.5 1.5 0 0 1 0 3h-2a1.5 1.5 0 0 0 0 3h3" stroke="white" stroke-width="2"/><path d="M6 34h8l10-4h10a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3H22l-8 5H6z"/><path d="M14 26l6 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let isRunning = false;
+    let langIndex = 0;
+    const languages = [
+      { code: 'EN', flag: '<svg viewBox="0 0 60 40"><path d="M0,0 v40 h60 v-40 z" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L30,20 M60,40 L30,20 M60,0 L30,20 M0,40 L30,20" stroke="#C8102E" stroke-width="3.5"/><path d="M30,0 v40 M0,20 h60" stroke="#fff" stroke-width="12"/><path d="M30,0 v40 M0,20 h60" stroke="#C8102E" stroke-width="7"/></svg>', full: 'Full Check', dup: 'Duplicate Check', other: 'Other Check' },
+      { code: 'RU', flag: '<svg viewBox="0 0 60 40"><rect width="60" height="13.33" y="0" fill="#FFFFFF"/><rect width="60" height="13.33" y="13.33" fill="#0039A6"/><rect width="60" height="13.34" y="26.66" fill="#D52B1E"/></svg>', full: 'Полная проверка', dup: 'Поиск дубликатов', other: 'Прочие файлы' },
+      { code: 'ZH', flag: '<svg viewBox="0 0 60 40"><rect width="60" height="40" fill="#DE2910"/><polygon fill="#FFDE00" points="10,4 12,10 18,10 13,14 15,20 10,16 5,20 7,14 2,10 8,10"/></svg>', full: '全盘检查', dup: '重复检查', other: '其他文件' }
+    ];
+
+    let currentMode = 'FULL';
+
+    function selectMode(el, mode) {
+      document.querySelectorAll('.mode-item').forEach(m => m.classList.remove('active'));
+      el.classList.add('active');
+      currentMode = mode;
+    }
+
+    function pickFolder(btn, name) {
+      btn.innerText = name + ' ✓';
+      btn.classList.add('selected');
+    }
+
+    function toggleStart() {
+      const btn = document.getElementById('startBtn');
+      const bar = document.getElementById('progressFill');
+      const container = document.getElementById('progContainer');
+      const content = document.getElementById('screenContent');
+
+      if (isRunning) {
+        isRunning = false;
+        btn.innerText = 'START';
+        btn.classList.remove('running');
+        return;
+      }
+
+      isRunning = true;
+      btn.innerText = 'STOP';
+      btn.classList.add('running');
+      container.style.display = 'block';
+      content.innerHTML = `<div style="color: #60A5FA;">🚀 Starting ${currentMode} mode...</div>`;
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        if (!isRunning) {
+          clearInterval(interval);
+          return;
+        }
+        progress += 10;
+        bar.style.width = progress + '%';
+        content.innerHTML += `<div>✨ Sorted: IMG_${progress * 10}.jpg ➔ 2025/09/</div>`;
+        content.scrollTop = content.scrollHeight;
+
+        if (progress >= 100) {
+          clearInterval(interval);
+          isRunning = false;
+          btn.innerText = 'START';
+          btn.classList.remove('running');
+          content.innerHTML += `<div style="color: #10B981; font-weight: bold; margin-top: 8px;">🎉 Completed successfully!</div>`;
+        }
+      }, 300);
+    }
+
+    function cycleLanguage() {
+      langIndex = (langIndex + 1) % languages.length;
+      const lang = languages[langIndex];
+      document.getElementById('flagBtn').innerHTML = lang.flag;
+      document.getElementById('labelFull').innerText = lang.full;
+      document.getElementById('labelDuplicate').innerText = lang.dup;
+      document.getElementById('labelOther').innerText = lang.other;
+    }
+
+    function showHelp() {
+      alert("Photo & Video Organizer\n\n- Temp: Source folder\n- Media: Target Year/Month\n- Duplicate: Clones\n- Other: Screenshots & non-media");
+    }
+  </script>
+</body>
+</html>
