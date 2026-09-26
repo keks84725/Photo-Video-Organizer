@@ -22,7 +22,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-        cache: 'pip'
 
     - name: Install dependencies
       run: |
@@ -31,8 +30,9 @@ jobs:
         python -m pip install pyinstaller
 
     - name: Build Single-File EXE
+      shell: pwsh
       run: |
-        python build.py
+        pyinstaller --name=PhotoVideoOrganizer --noconsole --onefile --add-data "assets;assets" --clean main.py
 
     - name: Verify Executable
       run: |

@@ -16,8 +16,14 @@ def build():
     sep = ";" if sys.platform == "win32" else ":"
     data_flag = f"assets{sep}assets"
 
-    cmd = [
-        sys.executable, "-m", "PyInstaller",
+    import shutil
+    pyinstaller_bin = shutil.which("pyinstaller")
+    if pyinstaller_bin:
+        base_cmd = [pyinstaller_bin]
+    else:
+        base_cmd = [sys.executable, "-m", "PyInstaller"]
+
+    cmd = base_cmd + [
         "--name=PhotoVideoOrganizer",
         "--noconsole",
         "--onefile",
