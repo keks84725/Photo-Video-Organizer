@@ -1,3 +1,5 @@
+<div align="center">
+
 # 📸 Photo & Video Organizer 2.0
 ### *Next-Gen Local-First Photo Sorter & Duplicate Cleaner*
 
@@ -6,13 +8,19 @@
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Cloud-red?logo=shield&logoColor=white)]()
 [![License](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
-[![Photo & Video Organizer 2.0 Banner](assets/banner_v2.jpg)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/banner_v2.jpg)
+<br/>
+
+![Photo & Video Organizer 2.0 Banner](assets/banner_v2.jpg)
+
+<br/>
 
 ### [![Скачать PhotoVideoOrganizer.exe](https://img.shields.io/badge/📥%20Скачать%20PhotoVideoOrganizer.exe%20(v2.0%20Windows)-55%20MB-0284C7?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)
 
 *Портативный автономный .exe • 55 МБ • Запуск в 1 клик без установки*
 
 **[🇷🇺 Описание на русском](#-photo--video-organizer-20) • [🇬🇧 English Guide](#-photo--video-organizer-20-english)**
+
+</div>
 
 ---
 
@@ -31,7 +39,11 @@
 
 Интерфейс спроектирован по принципу *Zero-Friction*: вся функциональность упакована в одно окно размером `585 × 720 px`, где всё понятно с первого взгляда.
 
-[![Карта кнопок и интерфейса](assets/ui_interface_guide_ru.jpg)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/ui_interface_guide_ru.jpg)
+<div align="center">
+
+![Карта кнопок и интерфейса](assets/ui_interface_guide_ru.jpg)
+
+</div>
 
 ### 🕹️ Описание блоков и элементов управления
 
@@ -89,7 +101,11 @@ Unlike cloud solutions or paid subscriptions, this tool operates **100% offline*
 
 ### 🗺️ Visual Interface Guide
 
-[![Photo & Video Organizer 2.0 Interface & Controls Guide](assets/ui_interface_guide_en.jpg)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/ui_interface_guide_en.jpg)
+<div align="center">
+
+![Photo & Video Organizer 2.0 Interface & Controls Guide](assets/ui_interface_guide_en.jpg)
+
+</div>
 
 ### 🕹️ Control Panel & Buttons
 
