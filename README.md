@@ -18,6 +18,8 @@
 
 *Портативный автономный .exe • 55 МБ • Запуск в 1 клик без установки*
 
+**[💾 Прямая ссылка на PhotoVideoOrganizer.exe](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)** • **[📦 Страница релиза v2.0](https://github.com/keks84725/Photo-Video-Organizer/releases/tag/v2.0)**
+
 **[🇷🇺 Описание на русском](#-photo--video-organizer-20) • [🇬🇧 English Guide](#-photo--video-organizer-20-english)**
 
 </div>
@@ -41,7 +43,7 @@
 
 <div align="center">
 
-![Карта кнопок и интерфейса](assets/ui_interface_guide_ru.jpg)
+![Карта кнопок и интерфейса](assets/ui_interface_guide.jpg)
 
 </div>
 
@@ -103,7 +105,7 @@ Unlike cloud solutions or paid subscriptions, this tool operates **100% offline*
 
 <div align="center">
 
-![Photo & Video Organizer 2.0 Interface & Controls Guide](assets/ui_interface_guide_en.jpg)
+![Photo & Video Organizer 2.0 Interface & Controls Guide](assets/ui_interface_guide.jpg)
 
 </div>
 
