@@ -43,7 +43,7 @@
 
 <div align="center">
 
-![Карта кнопок и интерфейса](assets/ui_interface_guide.jpg)
+![Карта кнопок и интерфейса](assets/ui_interface_guide_ru.jpg)
 
 </div>
 
@@ -105,7 +105,7 @@ Unlike cloud solutions or paid subscriptions, this tool operates **100% offline*
 
 <div align="center">
 
-![Photo & Video Organizer 2.0 Interface & Controls Guide](assets/ui_interface_guide.jpg)
+![Photo & Video Organizer 2.0 Interface & Controls Guide](assets/ui_interface_guide_en.jpg)
 
 </div>
 
