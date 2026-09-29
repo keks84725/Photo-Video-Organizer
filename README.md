@@ -3,8 +3,9 @@
 # 📸 Photo & Video Organizer 2.0
 ### *Next-Gen Local-First Photo Sorter & Duplicate Cleaner*
 
-[![Release](https://img.shields.io/badge/Release-v2.0-blue.svg)](https://github.com/keks84725/Photo-Video-Organizer/releases/tag/v2.0)
-[![Download EXE](https://img.shields.io/badge/Download-PhotoVideoOrganizer.exe%20(55%20MB)-success?logo=windows&logoColor=white)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
+[![PySide6](https://img.shields.io/badge/GUI-PySide6%20%2F%20Qt-41CD52?logo=qt&logoColor=white)](https://pyside.org)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-brightgreen)]()
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Cloud-red?logo=shield&logoColor=white)]()
 [![License](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
@@ -13,12 +14,6 @@
 ![Photo & Video Organizer 2.0 Banner](assets/banner_v2.jpg)
 
 <br/>
-
-### [![Скачать PhotoVideoOrganizer.exe](https://img.shields.io/badge/📥%20Скачать%20PhotoVideoOrganizer.exe%20(v2.0%20Windows)-55%20MB-0284C7?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)
-
-*Портативный автономный .exe • 55 МБ • Запуск в 1 клик без установки*
-
-**[💾 Прямая ссылка на PhotoVideoOrganizer.exe](https://github.com/keks84725/Photo-Video-Organizer/releases/download/v2.0/PhotoVideoOrganizer.exe)** • **[📦 Страница релиза v2.0](https://github.com/keks84725/Photo-Video-Organizer/releases/tag/v2.0)**
 
 **[🇷🇺 Описание на русском](#-photo--video-organizer-20) • [🇬🇧 English Guide](#-photo--video-organizer-20-english)**
 
@@ -33,7 +28,7 @@
 В отличие от облачных сервисов и платных аналогов, программа работает **на 100% локально на вашем компьютере**:
 * 🔒 **0 байт отправляется в сеть** — ваши личные фото и документы никогда не покинут ваш ПК.
 * 💸 **Никаких подписок** — бесплатно, без рекламы и без скрытых платежей.
-* ⚡ **Портативный `.exe`** — программа не требует установки, регистрации и сторонних компонентов.
+* ⚡ **Быстрый локальный запуск** — чистый Python-код без скрытых телеметрий и облаков.
 
 ---
 
@@ -81,10 +76,21 @@
 
 ### 💻 Запуск программы
 
-Программа поставляется в виде одного готового автономного файла **`PhotoVideoOrganizer.exe`** (без установщиков, библиотек и командных строк):
+Приложение с открытым исходным кодом написано на Python (PySide6) и запускается на Windows, macOS и Linux:
 
-1. Запустите скачанный файл **`PhotoVideoOrganizer.exe`** двойным кликом на Windows 10/11.
-2. Выберите папки источника и назначения в сетке и нажмите кнопку **START** — приложение сразу начнет организацию файлов!
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/keks84725/Photo-Video-Organizer.git
+   cd Photo-Video-Organizer
+   ```
+2. Установите зависимости:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Запустите приложение:
+   ```bash
+   python main.py
+   ```
 
 ---
 
@@ -97,7 +103,7 @@
 Unlike cloud solutions or paid subscriptions, this tool operates **100% offline**:
 * 🔒 **Zero Telemetry / Zero Cloud** — not a single byte leaves your computer. Your family moments and private photos remain strictly yours.
 * 💸 **No Subscriptions** — completely free and open-source under the MIT license.
-* ⚡ **Portable `.exe`** — no setup wizards, no installers, no dependencies required.
+* ⚡ **Fast Local Execution** — pure open-source code running locally on your hardware.
 
 ---
 
@@ -140,10 +146,21 @@ Unlike cloud solutions or paid subscriptions, this tool operates **100% offline*
 
 ### 💻 How to Run
 
-Zero installations or setup wizards required. The application is distributed as a single standalone portable **`PhotoVideoOrganizer.exe`**:
+The application is written in open-source Python (PySide6) and runs cross-platform (Windows, macOS, Linux):
 
-1. Double-click the downloaded **`PhotoVideoOrganizer.exe`** on Windows 10/11.
-2. Select your source and target folders in the grid, then click **START** to begin organizing!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/keks84725/Photo-Video-Organizer.git
+   cd Photo-Video-Organizer
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Launch the app:
+   ```bash
+   python main.py
+   ```
 
 ---
 
