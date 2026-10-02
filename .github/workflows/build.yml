@@ -46,22 +46,8 @@ jobs:
         pyinstaller --name=PhotoVideoOrganizer --noconsole --onefile --add-data "assets;assets" --clean main.py
 
     - name: Verify Executable & Compute SHA-256
-      shell: pwsh
       run: |
-        if (Test-Path "dist\PhotoVideoOrganizer.exe") {
-            $file = Get-Item "dist\PhotoVideoOrganizer.exe"
-            Write-Host "✅ Executable built successfully: $($file.Name) ($($file.Length) bytes)"
-            $hash = (Get-FileHash "dist\PhotoVideoOrganizer.exe" -Algorithm SHA256).Hash.ToLower()
-            Write-Host "🔑 SHA-256 Checksum: $hash"
-            Add-Content -Path $env:GITHUB_ENV -Value "EXE_SHA256=$hash"
-            Add-Content -Path $env:GITHUB_STEP_SUMMARY -Value "### 📦 Build Artifact Summary"
-            Add-Content -Path $env:GITHUB_STEP_SUMMARY -Value "* **File:** `PhotoVideoOrganizer.exe`"
-            Add-Content -Path $env:GITHUB_STEP_SUMMARY -Value "* **Size:** $([math]::Round($file.Length / 1MB, 2)) MB"
-            Add-Content -Path $env:GITHUB_STEP_SUMMARY -Value "* **SHA-256:** ``$hash``"
-        } else {
-            Write-Error "❌ Executable was not found!"
-            exit 1
-        }
+        python scripts/verify_build.py
 
     - name: Save Artifact (Private Build Storage)
       uses: actions/upload-artifact@v4
@@ -72,12 +58,11 @@ jobs:
 
     - name: Attach to GitHub Release (When requested)
       if: ${{ github.event.inputs.publish_release == 'true' }}
-      shell: pwsh
+      shell: bash
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TAG: ${{ github.event.inputs.tag_name || 'v2.0' }}
       run: |
-        $tag = "${{ github.event.inputs.tag_name }}"
-        if (-not $tag) { $tag = "v2.0" }
-        Write-Host "🚀 Attaching PhotoVideoOrganizer.exe to Release: $tag"
-        gh release upload $tag "dist\PhotoVideoOrganizer.exe" --clobber
-        Write-Host "✅ Successfully attached PhotoVideoOrganizer.exe to release $tag!"
+        echo "🚀 Attaching PhotoVideoOrganizer.exe to Release: $TAG"
+        gh release upload "$TAG" "dist/PhotoVideoOrganizer.exe" --clobber
+        echo "✅ Successfully attached PhotoVideoOrganizer.exe to release $TAG!"
