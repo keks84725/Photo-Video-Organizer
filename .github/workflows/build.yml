@@ -46,6 +46,9 @@ jobs:
         pyinstaller --name=PhotoVideoOrganizer --noconsole --onefile --add-data "assets;assets" --clean main.py
 
     - name: Verify Executable & Compute SHA-256
+      env:
+        PYTHONIOENCODING: utf-8
+        PYTHONUTF8: "1"
       run: |
         python scripts/verify_build.py
 

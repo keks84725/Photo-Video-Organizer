@@ -4,19 +4,25 @@ import hashlib
 import pathlib
 import sys
 
+# Ensure UTF-8 output on Windows consoles
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 def main():
     exe_path = pathlib.Path("dist") / "PhotoVideoOrganizer.exe"
     if not exe_path.exists():
-        print("❌ Error: dist/PhotoVideoOrganizer.exe was not found!", file=sys.stderr)
+        print("ERROR: dist/PhotoVideoOrganizer.exe was not found!", file=sys.stderr)
         sys.exit(1)
 
     data = exe_path.read_bytes()
     size_mb = round(len(data) / (1024 * 1024), 2)
     sha256 = hashlib.sha256(data).hexdigest()
 
-    print(f"✅ PhotoVideoOrganizer.exe verified successfully!")
-    print(f"📦 File size: {size_mb} MB ({len(data)} bytes)")
-    print(f"🔑 SHA-256 Checksum: {sha256}")
+    print(f"[OK] PhotoVideoOrganizer.exe verified successfully!")
+    print(f"[FILE SIZE] {size_mb} MB ({len(data)} bytes)")
+    print(f"[SHA-256] {sha256}")
 
     # Export to GITHUB_ENV if running inside GitHub Actions
     github_env = os.environ.get("GITHUB_ENV")
