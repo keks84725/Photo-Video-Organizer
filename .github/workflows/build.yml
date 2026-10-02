@@ -1,4 +1,4 @@
-name: Build Windows Executable (.exe)
+name: Build & Release Windows Executable
 
 on:
   push:
@@ -6,6 +6,17 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      publish_release:
+        description: 'Publish .exe to GitHub Release?'
+        type: boolean
+        required: true
+        default: false
+      tag_name:
+        description: 'Target release tag (e.g. v2.0)'
+        type: string
+        required: false
+        default: 'v2.0'
 
 permissions:
   contents: write
@@ -34,19 +45,39 @@ jobs:
       run: |
         pyinstaller --name=PhotoVideoOrganizer --noconsole --onefile --add-data "assets;assets" --clean main.py
 
-    - name: Verify Executable
+    - name: Verify Executable & Compute SHA-256
+      shell: pwsh
       run: |
         if (Test-Path "dist\PhotoVideoOrganizer.exe") {
-            Write-Host "✅ PhotoVideoOrganizer.exe created successfully!"
-            Get-Item "dist\PhotoVideoOrganizer.exe" | Select-Object Name, Length
+            $file = Get-Item "dist\PhotoVideoOrganizer.exe"
+            Write-Host "✅ Executable built successfully: $($file.Name) ($($file.Length) bytes)"
+            $hash = (Get-FileHash "dist\PhotoVideoOrganizer.exe" -Algorithm SHA256).Hash.ToLower()
+            Write-Host "🔑 SHA-256 Checksum: $hash"
+            Add-Content -Path $env:GITHUB_ENV -Value "EXE_SHA256=$hash"
+            Add-Content -Path $env:GITHUB_STEP_SUMMARY -Value "### 📦 Build Artifact Summary"
+            Add-Content -Path $env:GITHUB_STEP_SUMMARY -Value "* **File:** `PhotoVideoOrganizer.exe`"
+            Add-Content -Path $env:GITHUB_STEP_SUMMARY -Value "* **Size:** $([math]::Round($file.Length / 1MB, 2)) MB"
+            Add-Content -Path $env:GITHUB_STEP_SUMMARY -Value "* **SHA-256:** ``$hash``"
         } else {
             Write-Error "❌ Executable was not found!"
             exit 1
         }
 
-    - name: Upload Artifact
+    - name: Save Artifact (Private Build Storage)
       uses: actions/upload-artifact@v4
       with:
         name: PhotoVideoOrganizer-Windows
         path: dist/PhotoVideoOrganizer.exe
         if-no-files-found: error
+
+    - name: Attach to GitHub Release (When requested)
+      if: ${{ github.event.inputs.publish_release == 'true' }}
+      shell: pwsh
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        $tag = "${{ github.event.inputs.tag_name }}"
+        if (-not $tag) { $tag = "v2.0" }
+        Write-Host "🚀 Attaching PhotoVideoOrganizer.exe to Release: $tag"
+        gh release upload $tag "dist\PhotoVideoOrganizer.exe" --clobber
+        Write-Host "✅ Successfully attached PhotoVideoOrganizer.exe to release $tag!"
