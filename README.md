@@ -3,6 +3,7 @@
 # 📸 Photo & Video Organizer 2.0
 ### *Next-Gen Local-First Photo Sorter & Duplicate Cleaner*
 
+[![Release](https://img.shields.io/badge/Release-v2.0-0284C7.svg)](https://github.com/keks84725/Photo-Video-Organizer/releases/latest)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
 [![PySide6](https://img.shields.io/badge/GUI-PySide6%20%2F%20Qt-41CD52?logo=qt&logoColor=white)](https://pyside.org)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-brightgreen)]()
@@ -76,7 +77,11 @@
 
 ### 💻 Запуск программы
 
-Приложение с открытым исходным кодом написано на Python (PySide6) и запускается на Windows, macOS и Linux:
+#### Способ 1. Готовая версия для Windows (Без установки Python)
+Скачайте готовый автономный файл **`PhotoVideoOrganizer.exe`** на **[странице последнего релиза](https://github.com/keks84725/Photo-Video-Organizer/releases/latest)** (блок *Assets*) и запустите его двойным кликом на Windows 10/11.
+
+#### Способ 2. Запуск из открытого исходного кода (Python)
+Приложение кроссплатформенное и работает на Windows, macOS и Linux:
 
 1. Клонируйте репозиторий:
    ```bash
@@ -146,7 +151,11 @@ Unlike cloud solutions or paid subscriptions, this tool operates **100% offline*
 
 ### 💻 How to Run
 
-The application is written in open-source Python (PySide6) and runs cross-platform (Windows, macOS, Linux):
+#### Option 1: Standalone Portable Windows Executable (No Python Required)
+Download the pre-compiled **`PhotoVideoOrganizer.exe`** from the **[Latest Release Page](https://github.com/keks84725/Photo-Video-Organizer/releases/latest)** (*Assets* section) and double-click to launch on Windows 10/11.
+
+#### Option 2: Run from Open-Source Python Code
+The application is cross-platform and runs on Windows, macOS, and Linux:
 
 1. Clone the repository:
    ```bash
