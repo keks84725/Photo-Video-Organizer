@@ -11,8 +11,10 @@ from PySide6.QtGui import QIcon, QTextCursor
 
 from .widgets import (
     NotchBadge, ModeButton, FolderButton,
-    StartCircleButton, SidePillButton, FlagIconButton, TileIconButton
+    StartCircleButton, SidePillButton, FlagIconButton, TileIconButton,
+    PhoneDropPillButton
 )
+from .phone_drop_dialog import PhoneDropDialog
 from core.workers import ScannerWorker
 from core.config import load_config, save_config
 from core.file_utils import undo_last_run
@@ -33,6 +35,9 @@ TRANSLATIONS = {
         "full_sub": "Full Check",
         "dup_sub": "Duplicate Check",
         "other_sub": "Other Check",
+        "takeout_sub": "Takeout Healer",
+        "phone_drop_tooltip": "📱 Wi-Fi Phone Drop (AirDrop for PC)",
+        "phone_drop_loaded": "Received {count} files from phone into Temp folder!",
         "mode_selected": "Mode: {mode}",
         "folder_selected": "📁 {key}: {path}",
         "missing_temp": "Please select the 'Temp' folder containing your photos and videos first!",
@@ -52,7 +57,10 @@ TRANSLATIONS = {
             "<li><b>FULL:</b> Organizes media by date, moves duplicates & screenshots.</li>"
             "<li><b>DUPLICATE:</b> Only checks for duplicates.</li>"
             "<li><b>OTHER:</b> Extracts screenshots and unsupported files.</li>"
+            "<li><b>TAKEOUT:</b> Heals Google Takeout archives by restoring authentic timestamps & GPS from JSON sidecars into EXIF, then sorts into Year/Month.</li>"
             "</ul>"
+            "<p><b>📱 Wi-Fi Phone Drop:</b></p>"
+            "<p>Wirelessly transfer photos and videos from iPhone/Android to PC over local Wi-Fi. 100% offline, zero cloud.</p>"
         ),
         "undo_btn": "Undo Last Sort",
         "undo_success": "Successfully restored {count} files back to their original locations!",
@@ -66,6 +74,9 @@ TRANSLATIONS = {
         "full_sub": "Полная проверка",
         "dup_sub": "Поиск дубликатов",
         "other_sub": "Прочие файлы",
+        "takeout_sub": "Google Takeout",
+        "phone_drop_tooltip": "📱 Перенос с телефона по Wi-Fi (AirDrop на ПК)",
+        "phone_drop_loaded": "Получено {count} файлов с телефона в папку Temp!",
         "mode_selected": "Режим: {mode}",
         "folder_selected": "📁 {key}: {path}",
         "missing_temp": "Сначала выберите исходную папку 'Temp' с файлами!",
@@ -85,7 +96,10 @@ TRANSLATIONS = {
             "<li><b>FULL:</b> Полная сортировка по датам EXIF + отсев дубликатов и скриншотов.</li>"
             "<li><b>DUPLICATE:</b> Только поиск и перемещение дубликатов.</li>"
             "<li><b>OTHER:</b> Вынос скриншотов и неподдерживаемых файлов.</li>"
+            "<li><b>TAKEOUT:</b> Восстановление архивов Google Takeout: вшивает реальные даты и GPS из .json в EXIF файлов и сортирует по Год/Месяц.</li>"
             "</ul>"
+            "<p><b>📱 Перенос по Wi-Fi (Phone Drop):</b></p>"
+            "<p>Прямая беспроводная передача фото и видео с iPhone/Android на ПК по домашнему Wi-Fi без проводов и облаков.</p>"
         ),
         "undo_btn": "Отменить последнюю сортировку",
         "undo_success": "Успешно возвращено {count} файлов в исходные папки!",
@@ -99,6 +113,9 @@ TRANSLATIONS = {
         "full_sub": "全盘检查",
         "dup_sub": "重复检查",
         "other_sub": "其他文件",
+        "takeout_sub": "Takeout 修复",
+        "phone_drop_tooltip": "📱 手机 Wi-Fi 快传 (电脑版 AirDrop)",
+        "phone_drop_loaded": "已将手机发送的 {count} 个文件载入 Temp 文件夹！",
         "mode_selected": "模式：{mode}",
         "folder_selected": "📁 {key}：{path}",
         "missing_temp": "请先选择包含照片和视频的 'Temp' 源文件夹！",
@@ -118,7 +135,10 @@ TRANSLATIONS = {
             "<li><b>FULL：</b> 全功能处理，按 EXIF 日期归档，隔离重复项与截图。</li>"
             "<li><b>DUPLICATE：</b> 仅扫描并隔离重复文件。</li>"
             "<li><b>OTHER：</b> 仅提取截图与非媒体格式文件。</li>"
+            "<li><b>TAKEOUT：</b> 修复 Google Takeout 导出档案：从 JSON 附带文件中提取真实时间与 GPS 并注入 EXIF，再按 年/月 归档。</li>"
             "</ul>"
+            "<p><b>📱 手机 Wi-Fi 快传 (Phone Drop)：</b></p>"
+            "<p>通过局域网 Wi-Fi 从 iPhone/Android 无线传输照片与视频到电脑，无需数据线与云端。</p>"
         ),
         "undo_btn": "撤销上次整理",
         "undo_success": "已成功将 {count} 个文件恢复到原始位置！",
@@ -254,20 +274,23 @@ class MainWindow(QMainWindow):
             }
         """)
         mode_layout = QHBoxLayout(self.mode_card)
-        mode_layout.setContentsMargins(12, 6, 12, 6)
-        mode_layout.setSpacing(10)
+        mode_layout.setContentsMargins(8, 6, 8, 6)
+        mode_layout.setSpacing(6)
 
         self.btn_mode_full = ModeButton("full", "FULL", self.tr("full_sub"))
         self.btn_mode_duplicate = ModeButton("duplicate", "DUPLICATE", self.tr("dup_sub"))
         self.btn_mode_other = ModeButton("other", "OTHER", self.tr("other_sub"))
+        self.btn_mode_takeout = ModeButton("takeout", "TAKEOUT", self.tr("takeout_sub"))
 
         self.btn_mode_full.clicked.connect(self.set_mode)
         self.btn_mode_duplicate.clicked.connect(self.set_mode)
         self.btn_mode_other.clicked.connect(self.set_mode)
+        self.btn_mode_takeout.clicked.connect(self.set_mode)
 
         mode_layout.addWidget(self.btn_mode_full)
         mode_layout.addWidget(self.btn_mode_duplicate)
         mode_layout.addWidget(self.btn_mode_other)
+        mode_layout.addWidget(self.btn_mode_takeout)
 
         self.set_mode(self.current_mode)
         main_layout.addWidget(self.mode_card)
@@ -323,29 +346,35 @@ class MainWindow(QMainWindow):
         # Right Vertical Utility Toolbar
         util_layout = QVBoxLayout()
         util_layout.setContentsMargins(0, 2, 0, 2)
-        util_layout.setSpacing(10)
+        util_layout.setSpacing(6)
         util_layout.setAlignment(Qt.AlignCenter)
 
         # 1. '?' Pill button
         self.btn_help = SidePillButton()
-        self.btn_help.setToolTip("Help / Information")
+        self.btn_help.setToolTip(self.tr("help_title"))
         self.btn_help.clicked.connect(self.show_help)
         util_layout.addWidget(self.btn_help)
 
-        # 2. Flag button (Full color SVG UK / RU / ZH)
+        # 2. '📱' Phone Drop button
+        self.btn_phone = PhoneDropPillButton()
+        self.btn_phone.setToolTip(self.tr("phone_drop_tooltip"))
+        self.btn_phone.clicked.connect(self.open_phone_drop)
+        util_layout.addWidget(self.btn_phone)
+
+        # 3. Flag button (Full color SVG UK / RU / ZH)
         self.btn_flag = FlagIconButton()
         self.btn_flag.set_flag_svg(LANG_FLAGS[self.current_lang])
         self.btn_flag.setToolTip("Switch Language (EN / RU / ZH)")
         self.btn_flag.clicked.connect(self.cycle_language)
         util_layout.addWidget(self.btn_flag)
 
-        # 3. GitHub button (Octocat + "GitHub" text)
+        # 4. GitHub button (Octocat + "GitHub" text)
         self.btn_github = TileIconButton("assets/github.svg", "GitHub")
         self.btn_github.setToolTip("GitHub Repository")
         self.btn_github.clicked.connect(self.open_github)
         util_layout.addWidget(self.btn_github)
 
-        # 4. Donate button (Hand holding dollar coin)
+        # 5. Donate button (Hand holding dollar coin)
         self.btn_donate = TileIconButton("assets/donate.svg", "")
         self.btn_donate.setToolTip("Support Developer")
         self.btn_donate.clicked.connect(self.open_donate)
@@ -368,6 +397,8 @@ class MainWindow(QMainWindow):
         self.btn_mode_full.label.setText(self.tr("full_sub"))
         self.btn_mode_duplicate.label.setText(self.tr("dup_sub"))
         self.btn_mode_other.label.setText(self.tr("other_sub"))
+        self.btn_mode_takeout.label.setText(self.tr("takeout_sub"))
+        self.btn_phone.setToolTip(self.tr("phone_drop_tooltip"))
 
         self.config["language"] = self.current_lang
         save_config(self.config)
@@ -377,9 +408,26 @@ class MainWindow(QMainWindow):
         self.btn_mode_full.set_active(mode_id == "full")
         self.btn_mode_duplicate.set_active(mode_id == "duplicate")
         self.btn_mode_other.set_active(mode_id == "other")
+        self.btn_mode_takeout.set_active(mode_id == "takeout")
 
         self.config["mode"] = mode_id
         save_config(self.config)
+
+    def open_phone_drop(self):
+        if self.paths.get("temp") and Path(self.paths["temp"]).exists():
+            drop_dir = Path(self.paths["temp"])
+        else:
+            drop_dir = Path.home() / "Downloads" / "PhoneDrop"
+
+        dlg = PhoneDropDialog(target_dir=drop_dir, lang=self.current_lang, parent=self)
+        if dlg.exec():
+            self.paths["temp"] = str(drop_dir)
+            self.btn_temp.set_path(str(drop_dir))
+            self.config["temp_path"] = str(drop_dir)
+            save_config(self.config)
+            if dlg.received_count > 0:
+                msg = self.tr("phone_drop_loaded").format(count=dlg.received_count)
+                self.console.append(f"<span style='color: #38BDF8;'>📱 {msg}</span>")
 
     def select_folder(self, key: str, button: FolderButton):
         folder = QFileDialog.getExistingDirectory(self, f"Select {key.capitalize()} Folder")
@@ -400,7 +448,7 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Warning", self.tr("missing_temp"))
             return
 
-        if self.current_mode == "full" and not self.paths["media"]:
+        if self.current_mode in ("full", "takeout") and not self.paths["media"]:
             QMessageBox.warning(self, "Warning", self.tr("missing_media"))
             return
 

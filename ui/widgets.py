@@ -39,12 +39,12 @@ class ModeButton(QWidget):
         self.is_active = False
 
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(6, 4, 6, 4)
-        layout.setSpacing(8)
+        layout.setContentsMargins(2, 4, 2, 4)
+        layout.setSpacing(6)
         layout.setAlignment(Qt.AlignCenter)
 
         self.btn = QPushButton(title)
-        self.btn.setFixedSize(126, 48)
+        self.btn.setFixedSize(114, 46)
         self.btn.setCursor(Qt.PointingHandCursor)
         self.btn.clicked.connect(lambda: self.clicked.emit(self.mode_id))
 
@@ -53,7 +53,7 @@ class ModeButton(QWidget):
         self.label.setStyleSheet("""
             QLabel {
                 color: #FFFFFF;
-                font-size: 13px;
+                font-size: 11px;
                 font-weight: 500;
                 background: transparent;
                 border: none;
@@ -76,10 +76,10 @@ class ModeButton(QWidget):
                 QPushButton {
                     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4E95FF, stop:1 #2563EB);
                     color: white;
-                    font-size: 17px;
+                    font-size: 15px;
                     font-weight: 800;
                     border: 2px solid #93C5FD;
-                    border-radius: 16px;
+                    border-radius: 14px;
                 }
                 QPushButton:hover {
                     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #60A5FA, stop:1 #3B82F6);
@@ -90,16 +90,41 @@ class ModeButton(QWidget):
                 QPushButton {
                     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #3B82F6, stop:1 #1D4ED8);
                     color: #E2E8F0;
-                    font-size: 16px;
+                    font-size: 14px;
                     font-weight: 700;
                     border: 1px solid #1E3A8A;
-                    border-radius: 16px;
+                    border-radius: 14px;
                 }
                 QPushButton:hover {
                     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4B8CF7, stop:1 #2563EB);
                     border: 1px solid #3B82F6;
                 }
             """)
+
+
+class PhoneDropPillButton(QPushButton):
+    """Pill button for opening Wi-Fi Phone Drop dialog."""
+    def __init__(self, parent=None):
+        super().__init__("📱", parent)
+        self.setFixedSize(44, 30)
+        self.setCursor(Qt.PointingHandCursor)
+        self.setStyleSheet("""
+            QPushButton {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #1E3A8A, stop:1 #2563EB);
+                border: 1.5px solid #3B82F6;
+                border-radius: 15px;
+                color: #FFFFFF;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #2563EB, stop:1 #3B82F6);
+                border: 1.5px solid #60A5FA;
+            }
+            QPushButton:pressed {
+                background-color: #1D4ED8;
+            }
+        """)
 
 
 class FolderButton(QPushButton):
