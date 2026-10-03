@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <!-- Background squircle gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E2640"/>
+      <stop offset="50%" stop-color="#14192B"/>
+      <stop offset="100%" stop-color="#0B0E17"/>
+    </linearGradient>
+
+    <!-- Squircle border glow -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4B5E8A"/>
+      <stop offset="50%" stop-color="#28334E"/>
+      <stop offset="100%" stop-color="#141B2D"/>
+    </linearGradient>
+
+    <!-- Layer 1: Bottom Archive Folder -->
+    <linearGradient id="folderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <!-- Layer 2: Middle Filmstrip (Video) -->
+    <linearGradient id="filmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+
+    <!-- Layer 3: Top Photo Snapshot -->
+    <linearGradient id="photoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+
+    <linearGradient id="photoGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BAE6FD" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <!-- Drop shadows -->
+    <filter id="shadowL1" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000000" flood-opacity="0.7"/>
+    </filter>
+    <filter id="shadowL2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#020617" flood-opacity="0.6"/>
+    </filter>
+    <filter id="shadowL3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#020617" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Ambient glow filter -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Base App Squircle -->
+  <rect x="6" y="6" width="244" height="244" rx="56" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="2.5"/>
+
+  <!-- Subtle inner top rim light -->
+  <path d="M 64 8 H 192 C 224 8 248 32 248 64" fill="none" stroke="#60A5FA" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>
+
+  <!-- ========================================== -->
+  <!-- LAYER 1: BOTTOM ARCHIVE FOLDER (STORAGE)   -->
+  <!-- ========================================== -->
+  <g filter="url(#shadowL1)">
+    <!-- Folder Isometric Base Thickness -->
+    <polygon points="128,198 206,153 206,163 128,208 50,163 50,153" fill="#0B132B" opacity="0.9"/>
+    <!-- Folder Top Surface -->
+    <polygon points="128,153 206,108 128,63 50,108" fill="url(#folderGrad)" stroke="#2563EB" stroke-width="1.5" stroke-opacity="0.4" transform="translate(0, 45)"/>
+    <!-- Folder Tab Accent -->
+    <polygon points="128,153 158,136 142,127 112,144" fill="#3B82F6" opacity="0.7" transform="translate(0, 45)"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- LAYER 2: MIDDLE FILMSTRIP (VIDEO MEDIA)    -->
+  <!-- ========================================== -->
+  <g filter="url(#shadowL2)" transform="translate(0, 22)">
+    <!-- Filmstrip Isometric Base Thickness -->
+    <polygon points="128,150 198,110 198,116 128,156 58,116 58,110" fill="#0F172A" opacity="0.8"/>
+    <!-- Filmstrip Surface -->
+    <polygon points="128,146 198,106 128,66 58,106" fill="url(#filmGrad)" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.5"/>
+
+    <!-- Film Perforations Left Edge -->
+    <polygon points="76,106 82,102.5 78,100 72,103.5" fill="#0A0E1A" opacity="0.85"/>
+    <polygon points="90,114 96,110.5 92,108 86,111.5" fill="#0A0E1A" opacity="0.85"/>
+    <polygon points="104,122 110,118.5 106,116 100,119.5" fill="#0A0E1A" opacity="0.85"/>
+
+    <!-- Film Perforations Right Edge -->
+    <polygon points="152,122 158,118.5 154,116 148,119.5" fill="#0A0E1A" opacity="0.85"/>
+    <polygon points="166,114 172,110.5 168,108 162,111.5" fill="#0A0E1A" opacity="0.85"/>
+    <polygon points="180,106 186,102.5 182,100 176,103.5" fill="#0A0E1A" opacity="0.85"/>
+
+    <!-- Video Play Symbol (Isometric) -->
+    <polygon points="124,96 124,116 138,106" fill="#60A5FA" opacity="0.95"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- LAYER 3: TOP PHOTO CARD (PHOTO EXIF & HEAL)-->
+  <!-- ========================================== -->
+  <g filter="url(#shadowL3)">
+    <!-- Photo Card Thickness -->
+    <polygon points="128,138 194,100 194,105 128,143 62,105 62,100" fill="#1E293B"/>
+
+    <!-- Outer White/Silver Card Surface -->
+    <polygon points="128,136 194,98 128,60 62,98" fill="#F8FAFC" stroke="#FFFFFF" stroke-width="2"/>
+
+    <!-- Photo Image Area (Blue Gloss) -->
+    <polygon points="128,128 184,96 128,64 72,96" fill="url(#photoGlass)" stroke="#38BDF8" stroke-width="1.5"/>
+
+    <!-- Landscape Artwork on Photo: Mountain & Sun -->
+    <!-- Sun (Yellow/Amber Glow) -->
+    <circle cx="128" cy="80" r="7" fill="#FBBF24" filter="url(#glow)"/>
+    <circle cx="128" cy="80" r="5" fill="#FEF08A"/>
+
+    <!-- Isometric Mountain Peak -->
+    <polygon points="128,104 148,93 118,90" fill="#2563EB" opacity="0.9"/>
+    <polygon points="128,104 118,90 100,100" fill="#1D4ED8" opacity="0.8"/>
+    <!-- Mountain Snowcap -->
+    <polygon points="128,104 133,101 126,98 122,101" fill="#FFFFFF"/>
+
+    <!-- Glowing Corner Badge: Green Healed/Ready Indicator -->
+    <circle cx="178" cy="98" r="4.5" fill="#10B981" filter="url(#glow)"/>
+    <circle cx="178" cy="98" r="3" fill="#6EE7B7"/>
+  </g>
+
+  <!-- Top Gloss Light Reflection -->
+  <path d="M 62 98 L 128 60 L 194 98" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.7"/>
+</svg>

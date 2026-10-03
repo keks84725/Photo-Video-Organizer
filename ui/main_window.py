@@ -150,6 +150,12 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Photo & Video Organizer")
+        assets_dir = Path(__file__).resolve().parent.parent / "assets"
+        for icon_name in ("icon.png", "icon.ico", "icon.svg"):
+            icon_file = assets_dir / icon_name
+            if icon_file.exists():
+                self.setWindowIcon(QIcon(str(icon_file)))
+                break
         self.setFixedSize(585, 720)
         self.setStyleSheet("""
             QMainWindow {

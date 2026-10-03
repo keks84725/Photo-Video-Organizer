@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Концепции иконок — Photo & Video Organizer</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background-color: #0B0E17; color: #E2E8F0; padding: 40px 20px; min-height: 100vh; }
+    .header { text-align: center; max-width: 800px; margin: 0 auto 40px; }
+    .badge { display: inline-block; background: #1E293B; color: #60A5FA; border: 1px solid #3B82F6; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 6px 16px; border-radius: 20px; margin-bottom: 12px; }
+    h1 { font-size: 32px; font-weight: 800; color: #FFFFFF; margin-bottom: 10px; }
+    p.sub { font-size: 15px; color: #94A3B8; line-height: 1.5; }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .card { background: #14192B; border: 1.5px solid #232B45; border-radius: 20px; padding: 24px; text-align: center; transition: transform 0.2s, border-color 0.2s; position: relative; }
+    .card:hover { transform: translateY(-4px); border-color: #3B82F6; box-shadow: 0 12px 30px rgba(37,99,235,0.25); }
+    .card.recommended { border-color: #3B82F6; background: linear-gradient(180deg, #182038 0%, #14192B 100%); }
+    .rec-tag { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, #3B82F6, #10B981); color: #fff; font-size: 10px; font-weight: 800; padding: 3px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.8px; }
+    
+    .icon-preview { width: 128px; height: 128px; margin: 16px auto 20px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
+    .title { font-size: 17px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px; }
+    .num { color: #60A5FA; font-weight: 800; font-size: 13px; text-transform: uppercase; margin-bottom: 6px; }
+    .desc { font-size: 13px; color: #94A3B8; line-height: 1.4; text-align: left; }
+    
+    .taskbar-mockup { max-width: 600px; margin: 50px auto 0; background: #0A0D14; border: 1px solid #1E2538; border-radius: 16px; padding: 14px 20px; display: flex; align-items: center; justify-content: center; gap: 20px; }
+    .taskbar-title { font-size: 12px; color: #64748B; font-weight: 600; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">DESIGN LAB • V2.1</div>
+    <h1>Концепции официальной иконки</h1>
+    <p class="sub">Выберите идеальный визуальный знак для Photo & Video Organizer 2.1 — для ярлыка на рабочем столе, меню «Пуск», заголовка окна и панели задач.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- 1. The Chrono Aperture -->
+    <div class="card recommended">
+      <div class="rec-tag">★ Выбор редакции</div>
+      <div class="num">Концепция 01</div>
+      <div class="title">The Chrono Aperture</div>
+      <svg class="icon-preview" viewBox="0 0 128 128">
+        <defs>
+          <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E2640"/><stop offset="100%" stop-color="#0E121E"/></linearGradient>
+          <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#2563EB"/></linearGradient>
+          <linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#0284C7"/></linearGradient>
+          <linearGradient id="emeraldGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#34D399"/><stop offset="100%" stop-color="#059669"/></linearGradient>
+        </defs>
+        <rect width="128" height="128" rx="28" fill="url(#bg1)" stroke="#313E63" stroke-width="2"/>
+        <!-- Aperture ring -->
+        <circle cx="64" cy="64" r="46" fill="none" stroke="#252F4D" stroke-width="6"/>
+        <!-- Aperture blades -->
+        <path d="M 64 26 L 86 52 L 74 60 Z" fill="url(#blueGrad)" opacity="0.9"/>
+        <path d="M 102 64 L 76 86 L 68 74 Z" fill="url(#cyanGrad)" opacity="0.95"/>
+        <path d="M 64 102 L 42 76 L 54 68 Z" fill="url(#blueGrad)" opacity="0.9"/>
+        <path d="M 26 64 L 52 42 L 60 54 Z" fill="url(#cyanGrad)" opacity="0.95"/>
+        <!-- Center glowing folder/timeline diamond -->
+        <rect x="52" y="52" width="24" height="24" rx="6" fill="#0B0F19" stroke="url(#emeraldGrad)" stroke-width="3" transform="rotate(45 64 64)"/>
+        <circle cx="64" cy="64" r="4" fill="#34D399"/>
+      </svg>
+      <div class="desc">
+        <b>Метафора:</b> Многослойный фотообъектив, в сердцевине которого лепестки сходятся в идеальную упорядоченную картотеку с изумрудным хроно-ядром.<br>
+        <b>Плюсы:</b> Идеальная читаемость на 16×16 px, стиль Windows 11 Fluent и macOS.
+      </div>
+    </div>
+
+    <!-- 2. Prism Stack -->
+    <div class="card">
+      <div class="num">Концепция 02</div>
+      <div class="title">Prism Stack (Стек Кадров)</div>
+      <svg class="icon-preview" viewBox="0 0 128 128">
+        <defs>
+          <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A2035"/><stop offset="100%" stop-color="#0C0E17"/></linearGradient>
+        </defs>
+        <rect width="128" height="128" rx="28" fill="url(#bg2)" stroke="#2B3654" stroke-width="2"/>
+        <!-- Bottom Layer (Folder) -->
+        <polygon points="64,96 100,76 64,56 28,76" fill="#1E3A8A" opacity="0.6"/>
+        <!-- Middle Layer (Filmstrip) -->
+        <polygon points="64,84 100,64 64,44 28,64" fill="#2563EB" opacity="0.8"/>
+        <!-- Top Layer (Photo Card) -->
+        <polygon points="64,72 100,52 64,32 28,52" fill="#38BDF8" stroke="#93C5FD" stroke-width="1.5"/>
+        <circle cx="64" cy="52" r="7" fill="#FFFFFF"/>
+      </svg>
+      <div class="desc">
+        <b>Метафора:</b> Изометрический 3D-стек слоев: снизу папка библиотеки, посередине кинопленка видео, сверху чистый сияющий фотоснимок.<br>
+        <b>Плюсы:</b> Символизирует многоуровневую сортировку и слои архива.
+      </div>
+    </div>
+
+    <!-- 3. Quantum Shutter & Play -->
+    <div class="card">
+      <div class="num">Концепция 03</div>
+      <div class="title">Shutter & Play (Фото + Видео)</div>
+      <svg class="icon-preview" viewBox="0 0 128 128">
+        <defs>
+          <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#161B2E"/><stop offset="100%" stop-color="#090C14"/></linearGradient>
+        </defs>
+        <rect width="128" height="128" rx="28" fill="url(#bg3)" stroke="#283350" stroke-width="2"/>
+        <circle cx="64" cy="64" r="44" fill="#1F293D" stroke="#3B82F6" stroke-width="3"/>
+        <circle cx="64" cy="64" r="32" fill="#0E1322"/>
+        <!-- Play / Lens triangle -->
+        <polygon points="58,48 58,80 82,64" fill="url(#blueGrad)"/>
+        <!-- Lens dot -->
+        <circle cx="88" cy="40" r="5" fill="#10B981"/>
+      </svg>
+      <div class="desc">
+        <b>Метафора:</b> Объектив камеры, где центральный блик образует кнопку Play видеоплеера, а зеленый диод отражает статус готовности библиотеки.<br>
+        <b>Плюсы:</b> Моментально передает сущность программы: «Фото и Видео».
+      </div>
+    </div>
+
+    <!-- 4. Google Takeout Healer -->
+    <div class="card">
+      <div class="num">Концепция 04</div>
+      <div class="title">The Takeout Healer</div>
+      <svg class="icon-preview" viewBox="0 0 128 128">
+        <defs>
+          <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1B2238"/><stop offset="100%" stop-color="#0D101A"/></linearGradient>
+          <linearGradient id="crossGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#10B981"/></linearGradient>
+        </defs>
+        <rect width="128" height="128" rx="28" fill="url(#bg4)" stroke="#333F63" stroke-width="2"/>
+        <!-- Polaroid Frame -->
+        <rect x="34" y="24" width="60" height="74" rx="8" fill="#FFFFFF"/>
+        <rect x="40" y="30" width="48" height="46" rx="4" fill="#1E293B"/>
+        <!-- Medical / Healer Cross in center -->
+        <path d="M 60 41 H 68 V 49 H 76 V 57 H 68 V 65 H 60 V 57 H 52 V 49 H 60 Z" fill="url(#crossGrad)"/>
+        <circle cx="64" cy="87" r="4" fill="#3B82F6"/>
+      </svg>
+      <div class="desc">
+        <b>Метафора:</b> Рамка снимка с неоновым символом исцеления метаданных по центру. Подчеркивает киллер-фичу исцеления архивов Google Takeout.<br>
+        <b>Плюсы:</b> Очень свежо, необычно и выделяет утилиту от всех аналогов.
+      </div>
+    </div>
+
+    <!-- 5. Wi-Fi Phone Drop -->
+    <div class="card">
+      <div class="num">Концепция 05</div>
+      <div class="title">Beacon Drop (AirDrop PC)</div>
+      <svg class="icon-preview" viewBox="0 0 128 128">
+        <defs>
+          <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#171C30"/><stop offset="100%" stop-color="#0B0E18"/></linearGradient>
+        </defs>
+        <rect width="128" height="128" rx="28" fill="url(#bg5)" stroke="#2B3654" stroke-width="2"/>
+        <!-- Wi-Fi radar arcs -->
+        <path d="M 32 46 A 48 48 0 0 1 96 46" fill="none" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+        <path d="M 42 58 A 34 34 0 0 1 86 58" fill="none" stroke="#60A5FA" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+        <path d="M 52 70 A 20 20 0 0 1 76 70" fill="none" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+        <!-- Smartphone center -->
+        <rect x="54" y="74" width="20" height="32" rx="4" fill="#2563EB" stroke="#93C5FD" stroke-width="1.5"/>
+        <circle cx="64" cy="100" r="1.5" fill="#FFF"/>
+      </svg>
+      <div class="desc">
+        <b>Метафора:</b> Смартфон, излучающий радиоволны прямой беспроводной передачи файлов прямо на компьютер.<br>
+        <b>Плюсы:</b> Яркий акцент на свободу от кабелей и облаков.
+      </div>
+    </div>
+
+    <!-- 6. Chronos Timeline Folder -->
+    <div class="card">
+      <div class="num">Концепция 06</div>
+      <div class="title">Chronos Timeline Folder</div>
+      <svg class="icon-preview" viewBox="0 0 128 128">
+        <defs>
+          <linearGradient id="bg6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#192036"/><stop offset="100%" stop-color="#0D101C"/></linearGradient>
+          <linearGradient id="foldGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient>
+        </defs>
+        <rect width="128" height="128" rx="28" fill="url(#bg6)" stroke="#2C3759" stroke-width="2"/>
+        <!-- Folder Back -->
+        <path d="M 28 42 L 50 42 L 58 48 L 100 48 A 6 6 0 0 1 106 54 L 106 94 A 6 6 0 0 1 100 100 L 28 100 A 6 6 0 0 1 22 94 L 22 48 A 6 6 0 0 1 28 42 Z" fill="#1E3A8A"/>
+        <!-- Photo coming out -->
+        <rect x="36" y="32" width="56" height="40" rx="4" fill="#FFFFFF"/>
+        <circle cx="50" cy="46" r="5" fill="#F59E0B"/>
+        <path d="M 40 64 L 56 50 L 68 60 L 84 46 L 88 64 Z" fill="#64748B"/>
+        <!-- Folder Front with notch -->
+        <path d="M 22 56 L 106 56 L 98 98 A 4 4 0 0 1 94 102 L 34 102 A 4 4 0 0 1 30 98 Z" fill="url(#foldGrad)"/>
+      </svg>
+      <div class="desc">
+        <b>Метафора:</b> Умная папка, в которую аккуратно укладываются фотографии, отсортированные по хронологии.<br>
+        <b>Плюсы:</b> Максимально понятная классическая метафора картотеки.
+      </div>
+    </div>
+
+    <!-- 7. Dynamic Notch Brand -->
+    <div class="card">
+      <div class="num">Концепция 07</div>
+      <div class="title">The Dynamic Notch 2.0</div>
+      <svg class="icon-preview" viewBox="0 0 128 128">
+        <defs>
+          <linearGradient id="bg7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#141726"/><stop offset="100%" stop-color="#080A10"/></linearGradient>
+        </defs>
+        <rect width="128" height="128" rx="28" fill="url(#bg7)" stroke="#363D56" stroke-width="2"/>
+        <!-- Notch on top -->
+        <path d="M 38 0 L 90 0 C 90 0 90 18 84 22 C 78 26 50 26 44 22 C 38 18 38 0 38 0 Z" fill="#000000" stroke="#363D56" stroke-width="1.5"/>
+        <!-- Camera Silhouette -->
+        <circle cx="64" cy="72" r="30" fill="#1F2438" stroke="#3B82F6" stroke-width="3"/>
+        <circle cx="64" cy="72" r="16" fill="#0F1320" stroke="#60A5FA" stroke-width="2"/>
+        <circle cx="70" cy="66" r="3" fill="#38BDF8"/>
+      </svg>
+      <div class="desc">
+        <b>Метафора:</b> Знаменитый вырез Notch Badge в точности как в верхнем окне приложения, совмещенный с сияющим объективом.<br>
+        <b>Плюсы:</b> 100% визуальное соответствие графическому стилю интерфейса 2.0.
+      </div>
+    </div>
+
+    <!-- 8. Clean Minimal Shutter -->
+    <div class="card">
+      <div class="num">Концепция 08</div>
+      <div class="title">Minimal Pure Lens</div>
+      <svg class="icon-preview" viewBox="0 0 128 128">
+        <defs>
+          <linearGradient id="bg8" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient>
+        </defs>
+        <!-- Blue vibrant background like App Store / System apps -->
+        <rect width="128" height="128" rx="28" fill="url(#bg8)"/>
+        <!-- Inner glossy white aperture -->
+        <circle cx="64" cy="64" r="38" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+        <circle cx="64" cy="64" r="18" fill="#FFFFFF"/>
+        <line x1="64" y1="26" x2="64" y2="46" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+        <line x1="64" y1="82" x2="64" y2="102" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+        <line x1="26" y1="64" x2="46" y2="64" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+        <line x1="82" y1="64" x2="102" y2="64" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <div class="desc">
+        <b>Метафора:</b> Яркая, лаконичная белая диафрагма на сочном синем фоне в стиле системных приложений Apple/Google.<br>
+        <b>Плюсы:</b> Идеальная контрастность на панели задач Windows любого цвета.
+      </div>
+    </div>
+
+    <!-- 9. Cyber Film Reel -->
+    <div class="card">
+      <div class="num">Концепция 09</div>
+      <div class="title">Cyber Film Reel</div>
+      <svg class="icon-preview" viewBox="0 0 128 128">
+        <defs>
+          <linearGradient id="bg9" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#161B2B"/><stop offset="100%" stop-color="#0A0D15"/></linearGradient>
+        </defs>
+        <rect width="128" height="128" rx="28" fill="url(#bg9)" stroke="#2B3652" stroke-width="2"/>
+        <!-- Film strip ribbon -->
+        <rect x="28" y="38" width="72" height="52" rx="8" fill="#1E293B" stroke="#60A5FA" stroke-width="2"/>
+        <!-- Film perforations -->
+        <circle cx="38" cy="46" r="3" fill="#64748B"/>
+        <circle cx="55" cy="46" r="3" fill="#64748B"/>
+        <circle cx="72" cy="46" r="3" fill="#64748B"/>
+        <circle cx="89" cy="46" r="3" fill="#64748B"/>
+        <circle cx="38" cy="82" r="3" fill="#64748B"/>
+        <circle cx="55" cy="82" r="3" fill="#64748B"/>
+        <circle cx="72" cy="82" r="3" fill="#64748B"/>
+        <circle cx="89" cy="82" r="3" fill="#64748B"/>
+        <!-- Play / Photo icon center -->
+        <polygon points="60,56 60,72 74,64" fill="#34D399"/>
+      </svg>
+      <div class="desc">
+        <b>Метафора:</b> Перфорированная кинопленка с изумрудной кнопкой пуска, отражающая мощь обработки и видеоархивов.<br>
+        <b>Плюсы:</b> Подчеркивает работу с видео и видеохроникой.
+      </div>
+    </div>
+
+    <!-- 10. Pixel Vortex / Sorting Matrix -->
+    <div class="card">
+      <div class="num">Концепция 10</div>
+      <div class="title">Sorting Matrix (Матрица Сортировки)</div>
+      <svg class="icon-preview" viewBox="0 0 128 128">
+        <defs>
+          <linearGradient id="bg10" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#151A2E"/><stop offset="100%" stop-color="#080A12"/></linearGradient>
+        </defs>
+        <rect width="128" height="128" rx="28" fill="url(#bg10)" stroke="#2D3859" stroke-width="2"/>
+        <!-- 3x3 organized grid of photo tiles -->
+        <rect x="34" y="34" width="16" height="16" rx="4" fill="#3B82F6"/>
+        <rect x="56" y="34" width="16" height="16" rx="4" fill="#60A5FA"/>
+        <rect x="78" y="34" width="16" height="16" rx="4" fill="#3B82F6"/>
+        <rect x="34" y="56" width="16" height="16" rx="4" fill="#60A5FA"/>
+        <rect x="56" y="56" width="16" height="16" rx="4" fill="#10B981"/> <!-- Green center check -->
+        <rect x="78" y="56" width="16" height="16" rx="4" fill="#60A5FA"/>
+        <rect x="34" y="78" width="16" height="16" rx="4" fill="#3B82F6"/>
+        <rect x="56" y="78" width="16" height="16" rx="4" fill="#60A5FA"/>
+        <rect x="78" y="78" width="16" height="16" rx="4" fill="#3B82F6"/>
+        <!-- Center checkmark inside green tile -->
+        <path d="M 60 64 L 63 67 L 69 61" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="desc">
+        <b>Метафора:</b> Матрица организованных медиафайлов, где в центре горит зеленый маркер выполненной валидации и порядка.<br>
+        <b>Плюсы:</b> Прямо отражает суть «Органайзера» — сетка, структура, каталог.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="taskbar-mockup">
+    <div class="taskbar-title">Как смотрится в трее и на панели задач:</div>
+    <svg width="32" height="32" viewBox="0 0 128 128">
+      <rect width="128" height="128" rx="28" fill="#1E2640" stroke="#313E63" stroke-width="2"/>
+      <circle cx="64" cy="64" r="46" fill="none" stroke="#252F4D" stroke-width="6"/>
+      <path d="M 64 26 L 86 52 L 74 60 Z" fill="#3B82F6"/>
+      <path d="M 102 64 L 76 86 L 68 74 Z" fill="#38BDF8"/>
+      <path d="M 64 102 L 42 76 L 54 68 Z" fill="#3B82F6"/>
+      <path d="M 26 64 L 52 42 L 60 54 Z" fill="#38BDF8"/>
+      <rect x="52" y="52" width="24" height="24" rx="6" fill="#0B0F19" stroke="#10B981" stroke-width="3" transform="rotate(45 64 64)"/>
+    </svg>
+    <svg width="24" height="24" viewBox="0 0 128 128">
+      <rect width="128" height="128" rx="28" fill="#1E2640" stroke="#313E63" stroke-width="2"/>
+      <circle cx="64" cy="64" r="46" fill="none" stroke="#252F4D" stroke-width="6"/>
+      <path d="M 64 26 L 86 52 L 74 60 Z" fill="#3B82F6"/>
+      <path d="M 102 64 L 76 86 L 68 74 Z" fill="#38BDF8"/>
+      <path d="M 64 102 L 42 76 L 54 68 Z" fill="#3B82F6"/>
+      <path d="M 26 64 L 52 42 L 60 54 Z" fill="#38BDF8"/>
+      <rect x="52" y="52" width="24" height="24" rx="6" fill="#0B0F19" stroke="#10B981" stroke-width="3" transform="rotate(45 64 64)"/>
+    </svg>
+    <svg width="16" height="16" viewBox="0 0 128 128">
+      <rect width="128" height="128" rx="28" fill="#1E2640"/>
+      <circle cx="64" cy="64" r="38" fill="#3B82F6"/>
+      <circle cx="64" cy="64" r="14" fill="#10B981"/>
+    </svg>
+  </div>
+</body>
+</html>

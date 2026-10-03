@@ -28,6 +28,7 @@ def build():
         "--noconsole",
         "--onefile",
         "--add-data", data_flag,
+        "--icon=assets/icon.ico",
         "--clean",
         main_file
     ]

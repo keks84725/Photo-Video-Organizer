@@ -43,7 +43,7 @@ jobs:
     - name: Build Single-File EXE
       shell: pwsh
       run: |
-        pyinstaller --name=PhotoVideoOrganizer --noconsole --onefile --add-data "assets;assets" --clean main.py
+        pyinstaller --name=PhotoVideoOrganizer --noconsole --onefile --add-data "assets;assets" --icon="assets/icon.ico" --clean main.py
 
     - name: Verify Executable & Compute SHA-256
       env:
